@@ -184,7 +184,7 @@ async def process_urgency(message: types.Message, state: FSMContext):
         return await message.answer(messages_to_user['q9_2'])
     await state.update_data(urgency=urgency)
     user_data = await state.get_data()
-    await bitrix.send_data_to_bitrix24(user_data)
+    bitrix.send_data_to_bitrix24(user_data)
     response = get_response_text(user_data)
     await message.answer(response, reply_markup=markup)
     await state.finish()
@@ -196,7 +196,7 @@ async def process_urgency_2(message: types.Message, state: FSMContext):
     urgency = message.text
     await state.update_data(urgency=urgency)
     user_data = await state.get_data()
-    await bitrix.send_data_to_bitrix24(user_data)
+    bitrix.send_data_to_bitrix24(user_data)
     response = get_response_text(user_data)
 
     markup = ReplyKeyboardMarkup(resize_keyboard=True)
